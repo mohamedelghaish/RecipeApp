@@ -14,10 +14,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
-        let recipeListVC = RecipeListViewController(nibName: "RecipeListViewController", bundle: nil)
-        let navigationController = UINavigationController(rootViewController: recipeListVC)
+        
+        let splashScreenVC = SplashScreenViewController(nibName: "SplashScreenViewController", bundle: nil)
+        let navigationController = UINavigationController(rootViewController: splashScreenVC)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let recipeListVC = RecipeListViewController(nibName: "RecipeListViewController", bundle: nil)
+            let mainNavigationController = UINavigationController(rootViewController: recipeListVC)
+            UIView.transition(with: self.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                self.window?.rootViewController = mainNavigationController
+            }, completion: nil)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

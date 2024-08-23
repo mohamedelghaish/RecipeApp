@@ -55,7 +55,7 @@ class RecipeListViewController: UIViewController {
     @objc func filterChanged() {
         viewModel.selectedHealthFilter = {
             switch filterSegmentedControl.selectedSegmentIndex {
-            case 0: return nil          // "All" selected, no filter applied
+            case 0: return nil          
             case 1: return "low-sugar"
             case 2: return "dairy-free"
             case 3: return "vegan"

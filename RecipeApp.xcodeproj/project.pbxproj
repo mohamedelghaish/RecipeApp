@@ -24,6 +24,8 @@
 		E67B10AC2C78CA75000D89A6 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67B10AB2C78CA74000D89A6 /* RecipeViewModel.swift */; };
 		E67B10B02C78CBBA000D89A6 /* RecipeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67B10AF2C78CBBA000D89A6 /* RecipeDetailViewController.xib */; };
 		E67B10B12C78CBBA000D89A6 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67B10AE2C78CBBA000D89A6 /* RecipeDetailViewController.swift */; };
+		E6FBA4992C792AF400CC6FB7 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6FBA4982C792AF400CC6FB7 /* SplashScreenViewController.xib */; };
+		E6FBA49A2C792AF400CC6FB7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBA4972C792AF400CC6FB7 /* SplashScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		E67B10AB2C78CA74000D89A6 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		E67B10AE2C78CBBA000D89A6 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		E67B10AF2C78CBBA000D89A6 /* RecipeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDetailViewController.xib; sourceTree = "<group>"; };
+		E6FBA4972C792AF400CC6FB7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		E6FBA4982C792AF400CC6FB7 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 				E67B10892C78B89D000D89A6 /* Assets.xcassets */,
 				E67B108B2C78B89D000D89A6 /* LaunchScreen.storyboard */,
 				E67B108E2C78B89D000D89A6 /* Info.plist */,
+				E6FBA4972C792AF400CC6FB7 /* SplashScreenViewController.swift */,
+				E6FBA4982C792AF400CC6FB7 /* SplashScreenViewController.xib */,
 			);
 			path = RecipeApp;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 				E67B108D2C78B89D000D89A6 /* Base in Resources */,
 				E67B10A42C78C897000D89A6 /* RecipeTableViewCell.xib in Resources */,
 				E67B10882C78B89A000D89A6 /* Base in Resources */,
+				E6FBA4992C792AF400CC6FB7 /* SplashScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +331,7 @@
 				E67B10812C78B89A000D89A6 /* AppDelegate.swift in Sources */,
 				E67B10A12C78C7D1000D89A6 /* RecipeListViewController.swift in Sources */,
 				E67B10A52C78C897000D89A6 /* RecipeTableViewCell.swift in Sources */,
+				E6FBA49A2C792AF400CC6FB7 /* SplashScreenViewController.swift in Sources */,
 				E67B10A82C78C9A7000D89A6 /* RecipeListViewModel.swift in Sources */,
 				E67B10992C78C5B5000D89A6 /* NetworkManager.swift in Sources */,
 				E67B10832C78B89A000D89A6 /* SceneDelegate.swift in Sources */,
@@ -485,7 +493,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecipeApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreenViewController.xib;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -514,7 +522,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecipeApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreenViewController.xib;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
