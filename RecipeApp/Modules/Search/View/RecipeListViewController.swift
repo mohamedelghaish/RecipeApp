@@ -6,24 +6,88 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RecipeListViewController: UIViewController {
-
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var filterSegmentedControl: UISegmentedControl!
+    
+    private let viewModel = RecipeListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setupUI()
+        setupBindings()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func setupUI() {
+        tableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeTableViewCell")
+        tableView.rowHeight = 189
+        tableView.delegate = self
+        tableView.dataSource = self
+        searchBar.delegate = self
+        filterSegmentedControl.addTarget(self, action: #selector(filterChanged), for: .valueChanged)
     }
-    */
+    
+    private func setupBindings() {
+        viewModel.reloadTableView = { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    @objc func filterChanged() {
+        viewModel.selectedHealthFilter = {
+            switch filterSegmentedControl.selectedSegmentIndex {
+            case 1: return "low-sugar"
+            case 2: return "dairy-free"
+            case 3: return "vegan"
+            default: return nil
+            }
+        }()
+        viewModel.searchRecipes(query: viewModel.currentQuery, reset: true)
+    }
+    
+    func loadMoreRecipes() {
+        viewModel.searchRecipes(query: viewModel.currentQuery, reset: false)
+    }
+}
 
+extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRecipes()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCell", for: indexPath) as? RecipeTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let recipeViewModel = viewModel.getRecipe(at: indexPath.row)
+        cell.configure(with: recipeViewModel)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipeViewModel = viewModel.getRecipe(at: indexPath.row)
+        let detailVC = RecipeDetailViewController(recipeViewModel: recipeViewModel)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > tableView.contentSize.height - scrollView.frame.size.height {
+            loadMoreRecipes()
+        }
+    }
+}
+
+extension RecipeListViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let query = searchBar.text else { return }
+        viewModel.currentQuery = query
+        viewModel.searchRecipes(query: query, reset: true)
+    }
 }
