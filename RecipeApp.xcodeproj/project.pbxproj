@@ -14,6 +14,7 @@
 		E67B10882C78B89A000D89A6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E67B10872C78B89A000D89A6 /* Base */; };
 		E67B108A2C78B89D000D89A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E67B10892C78B89D000D89A6 /* Assets.xcassets */; };
 		E67B108D2C78B89D000D89A6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E67B108C2C78B89D000D89A6 /* Base */; };
+		E67B10962C78C4C5000D89A6 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67B10952C78C4C5000D89A6 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E67B10892C78B89D000D89A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E67B108C2C78B89D000D89A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E67B108E2C78B89D000D89A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E67B10952C78C4C5000D89A6 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		E67B107F2C78B89A000D89A6 /* RecipeApp */ = {
 			isa = PBXGroup;
 			children = (
+				E67B10942C78C495000D89A6 /* Model */,
 				E67B10802C78B89A000D89A6 /* AppDelegate.swift */,
 				E67B10822C78B89A000D89A6 /* SceneDelegate.swift */,
 				E67B10842C78B89A000D89A6 /* ViewController.swift */,
@@ -89,6 +92,14 @@
 				E67B108E2C78B89D000D89A6 /* Info.plist */,
 			);
 			path = RecipeApp;
+			sourceTree = "<group>";
+		};
+		E67B10942C78C495000D89A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E67B10952C78C4C5000D89A6 /* Recipe.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +220,7 @@
 				E67B10852C78B89A000D89A6 /* ViewController.swift in Sources */,
 				E67B10812C78B89A000D89A6 /* AppDelegate.swift in Sources */,
 				E67B10832C78B89A000D89A6 /* SceneDelegate.swift in Sources */,
+				E67B10962C78C4C5000D89A6 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
