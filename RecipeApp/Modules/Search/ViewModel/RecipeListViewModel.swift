@@ -4,8 +4,7 @@
 //
 //  Created by Mohamed Kotb Saied Kotb on 23/08/2024.
 //
-
-import Foundation
+//
 
 class RecipeListViewModel {
     var recipes: [Recipe] = []
@@ -14,20 +13,34 @@ class RecipeListViewModel {
     var selectedHealthFilter: String? = nil
     
     var reloadTableView: (() -> Void)?
+    var url: String = ""
     
-    func searchRecipes(query: String, reset: Bool = false) {
+    func searchRecipes(query: String, pageNumber: Int, reset: Bool = false) {
         if reset {
+            url = NetworkManager.shared.createURL(query: query, health: selectedHealthFilter)
             currentPage = 0
             recipes.removeAll()
+        } else {
+            currentPage = pageNumber
         }
-        
-        NetworkManager.shared.fetchRecipes(query: query, health: selectedHealthFilter, page: currentPage) { [weak self] result in
+       
+        NetworkManager.shared.fetchRecipes(url: url) { [weak self] result in
             switch result {
-            case .success(let newRecipes):
-                self?.recipes.append(contentsOf: newRecipes)
+            case .success(let recipeResponse):
+                let newRecipes = recipeResponse.hits.map { $0.recipe }
+                let nextPageURL = recipeResponse.links.next?.href
+                self?.url = nextPageURL ?? ""
+                
+                if reset {
+                    self?.recipes = newRecipes
+                } else {
+                    self?.recipes.append(contentsOf: newRecipes)
+                }
+                
                 self?.reloadTableView?()
+                
             case .failure(let error):
-                print(error)
+                print("Error fetching recipes: \(error)")
             }
         }
     }
@@ -41,3 +54,4 @@ class RecipeListViewModel {
         return recipes.count
     }
 }
+

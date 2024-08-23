@@ -4,6 +4,7 @@
 //
 //  Created by Mohamed Kotb Saied Kotb on 23/08/2024.
 //
+//
 
 import UIKit
 import Kingfisher
@@ -13,8 +14,13 @@ class RecipeListViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var filterSegmentedControl: UISegmentedControl!
     
-    private let viewModel = RecipeListViewModel()
     
+    @IBAction func searchBtn(_ sender: Any) {
+        performSearch()
+    }
+    
+    private let viewModel = RecipeListViewModel()
+    private var isFetchingMoreRecipes = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +29,15 @@ class RecipeListViewController: UIViewController {
         setupBindings()
     }
     
+    private func performSearch() {
+            guard let query = searchBar.text, !query.isEmpty else { return }
+            viewModel.currentQuery = query
+            viewModel.searchRecipes(query: query, pageNumber: 0, reset: true)
+        }
+    
     private func setupUI() {
         tableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeTableViewCell")
-        tableView.rowHeight = 189
+        tableView.rowHeight = 160
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
@@ -35,23 +47,29 @@ class RecipeListViewController: UIViewController {
     private func setupBindings() {
         viewModel.reloadTableView = { [weak self] in
             self?.tableView.reloadData()
+            self?.isFetchingMoreRecipes = false
         }
     }
+
     
     @objc func filterChanged() {
         viewModel.selectedHealthFilter = {
             switch filterSegmentedControl.selectedSegmentIndex {
+            case 0: return nil          // "All" selected, no filter applied
             case 1: return "low-sugar"
             case 2: return "dairy-free"
             case 3: return "vegan"
             default: return nil
             }
         }()
-        viewModel.searchRecipes(query: viewModel.currentQuery, reset: true)
+        viewModel.searchRecipes(query: viewModel.currentQuery, pageNumber: 0, reset: true)
     }
+
     
     func loadMoreRecipes() {
-        viewModel.searchRecipes(query: viewModel.currentQuery, reset: false)
+        guard !isFetchingMoreRecipes else { return }
+        isFetchingMoreRecipes = true
+        viewModel.searchRecipes(query: viewModel.currentQuery, pageNumber: viewModel.currentPage, reset: false)
     }
 }
 
@@ -79,7 +97,10 @@ extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
-        if position > tableView.contentSize.height - scrollView.frame.size.height {
+        let contentHeight = scrollView.contentSize.height
+        let frameHeight = scrollView.frame.size.height
+        
+        if position > contentHeight - frameHeight && !isFetchingMoreRecipes {
             loadMoreRecipes()
         }
     }
@@ -87,8 +108,6 @@ extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension RecipeListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let query = searchBar.text else { return }
-        viewModel.currentQuery = query
-        viewModel.searchRecipes(query: query, reset: true)
+        performSearch()
     }
 }

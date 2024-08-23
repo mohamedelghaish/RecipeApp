@@ -17,8 +17,21 @@ struct Recipe: Codable {
 
 struct RecipeResponse: Codable {
     let hits: [RecipeHit]
+    let links: RecipeLinks
+        
+        enum CodingKeys: String, CodingKey {
+            case hits
+            case links = "_links"
+        }
 }
 
+struct RecipeLink: Codable {
+    let href: String
+    let title: String
+}
+struct RecipeLinks: Codable {
+    let next: RecipeLink?
+}
 struct RecipeHit: Codable {
     let recipe: Recipe
 }

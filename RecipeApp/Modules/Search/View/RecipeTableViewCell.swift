@@ -14,8 +14,8 @@ class RecipeTableViewCell: UITableViewCell {
     
     func configure(with viewModel: RecipeViewModel) {
         titleLabel.text = viewModel.title
-        sourceLabel.text = viewModel.source
-        totalTimeLabel.text = viewModel.totalTime
+        sourceLabel.text = "Source: \(viewModel.source)"
+        totalTimeLabel.text = "Time: \(viewModel.totalTime)"
         recipeImageView.kf.setImage(with: viewModel.imageURL)
     }
 }
