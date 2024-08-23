@@ -18,6 +18,8 @@
 		E67B10992C78C5B5000D89A6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67B10982C78C5B5000D89A6 /* NetworkManager.swift */; };
 		E67B10A02C78C7D1000D89A6 /* RecipeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67B109F2C78C7D1000D89A6 /* RecipeListViewController.xib */; };
 		E67B10A12C78C7D1000D89A6 /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67B109E2C78C7D1000D89A6 /* RecipeListViewController.swift */; };
+		E67B10A42C78C897000D89A6 /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67B10A32C78C897000D89A6 /* RecipeTableViewCell.xib */; };
+		E67B10A52C78C897000D89A6 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67B10A22C78C897000D89A6 /* RecipeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		E67B10982C78C5B5000D89A6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E67B109E2C78C7D1000D89A6 /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		E67B109F2C78C7D1000D89A6 /* RecipeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeListViewController.xib; sourceTree = "<group>"; };
+		E67B10A22C78C897000D89A6 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		E67B10A32C78C897000D89A6 /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 			children = (
 				E67B109E2C78C7D1000D89A6 /* RecipeListViewController.swift */,
 				E67B109F2C78C7D1000D89A6 /* RecipeListViewController.xib */,
+				E67B10A22C78C897000D89A6 /* RecipeTableViewCell.swift */,
+				E67B10A32C78C897000D89A6 /* RecipeTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 				E67B10A02C78C7D1000D89A6 /* RecipeListViewController.xib in Resources */,
 				E67B108A2C78B89D000D89A6 /* Assets.xcassets in Resources */,
 				E67B108D2C78B89D000D89A6 /* Base in Resources */,
+				E67B10A42C78C897000D89A6 /* RecipeTableViewCell.xib in Resources */,
 				E67B10882C78B89A000D89A6 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +277,7 @@
 				E67B10852C78B89A000D89A6 /* ViewController.swift in Sources */,
 				E67B10812C78B89A000D89A6 /* AppDelegate.swift in Sources */,
 				E67B10A12C78C7D1000D89A6 /* RecipeListViewController.swift in Sources */,
+				E67B10A52C78C897000D89A6 /* RecipeTableViewCell.swift in Sources */,
 				E67B10992C78C5B5000D89A6 /* NetworkManager.swift in Sources */,
 				E67B10832C78B89A000D89A6 /* SceneDelegate.swift in Sources */,
 				E67B10962C78C4C5000D89A6 /* Recipe.swift in Sources */,
