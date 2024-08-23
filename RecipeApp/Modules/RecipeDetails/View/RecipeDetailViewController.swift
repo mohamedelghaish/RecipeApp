@@ -8,22 +8,34 @@
 import UIKit
 
 class RecipeDetailViewController: UIViewController {
-
+    @IBOutlet weak var recipeImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var caloriesLabel: UILabel!
+    @IBOutlet weak var totalWeightLabel: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
+    
+    private var viewModel: RecipeViewModel
+    
+    init(recipeViewModel: RecipeViewModel) {
+        self.viewModel = recipeViewModel
+        super.init(nibName: "RecipeDetailViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupUI()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func setupUI() {
+        titleLabel.text = viewModel.title
+        caloriesLabel.text = "Calories: \(viewModel.calories)"
+        totalWeightLabel.text = "Total Weight: \(viewModel.totalWeight)"
+        totalTimeLabel.text = "Total Time: \(viewModel.totalTime)"
+        recipeImageView.kf.setImage(with: viewModel.imageURL)
     }
-    */
-
 }
+
