@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipeListViewController" customModule="RecipeApp" customModuleProvider="target">
+            <connections>
+                <outlet property="filterSegmentedControl" destination="b2S-UP-jiF" id="AWR-Vg-OJg"/>
+                <outlet property="searchBar" destination="JN6-6u-UAW" id="DVg-lb-Jg1"/>
+                <outlet property="tableView" destination="QBd-bZ-9jU" id="uky-Lh-uvG"/>
+                <outlet property="view" destination="X0e-kV-jva" id="tOl-ZS-lz9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="X0e-kV-jva">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="JN6-6u-UAW">
+                    <rect key="frame" x="8" y="75" width="289" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QBd-bZ-9jU">
+                    <rect key="frame" x="16" y="210" width="361" height="597"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="b2S-UP-jiF">
+                    <rect key="frame" x="8" y="147" width="369" height="32"/>
+                    <segments>
+                        <segment title="All"/>
+                        <segment title="Low Sugar"/>
+                        <segment title="Dairy-Free "/>
+                        <segment title="Vegan"/>
+                    </segments>
+                </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F49-Jv-bT9">
+                    <rect key="frame" x="299" y="85" width="78" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="bXp-20-8DD"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="gray" title="Search"/>
+                    <connections>
+                        <action selector="searchBtn:" destination="-1" eventType="touchUpInside" id="Qfo-9U-JuV"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="gSC-3b-VU3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="b2S-UP-jiF" firstAttribute="height" secondItem="X0e-kV-jva" secondAttribute="height" multiplier="0.036385" id="38O-CR-adh"/>
+                <constraint firstItem="F49-Jv-bT9" firstAttribute="top" secondItem="gSC-3b-VU3" secondAttribute="top" constant="26" id="3ho-tU-1RX"/>
+                <constraint firstItem="QBd-bZ-9jU" firstAttribute="leading" secondItem="X0e-kV-jva" secondAttribute="leadingMargin" id="9ks-DH-ZEd"/>
+                <constraint firstItem="F49-Jv-bT9" firstAttribute="trailing" secondItem="QBd-bZ-9jU" secondAttribute="trailing" id="BsN-TY-uua"/>
+                <constraint firstItem="JN6-6u-UAW" firstAttribute="height" secondItem="X0e-kV-jva" secondAttribute="height" multiplier="0.0657277" id="Cfr-gs-ECb"/>
+                <constraint firstItem="QBd-bZ-9jU" firstAttribute="width" secondItem="X0e-kV-jva" secondAttribute="width" multiplier="0.918575" id="FFa-YN-x60"/>
+                <constraint firstItem="b2S-UP-jiF" firstAttribute="leading" secondItem="JN6-6u-UAW" secondAttribute="leading" id="J9K-WG-LAk"/>
+                <constraint firstItem="b2S-UP-jiF" firstAttribute="width" secondItem="X0e-kV-jva" secondAttribute="width" multiplier="0.938931" id="L9D-fc-o8x"/>
+                <constraint firstItem="F49-Jv-bT9" firstAttribute="trailing" secondItem="b2S-UP-jiF" secondAttribute="trailing" id="NfF-fJ-aaL"/>
+                <constraint firstItem="JN6-6u-UAW" firstAttribute="width" secondItem="X0e-kV-jva" secondAttribute="width" multiplier="0.735369" id="W8G-8H-LzS"/>
+                <constraint firstItem="gSC-3b-VU3" firstAttribute="bottom" secondItem="QBd-bZ-9jU" secondAttribute="bottom" constant="11" id="aks-yq-Fcp"/>
+                <constraint firstItem="F49-Jv-bT9" firstAttribute="leading" secondItem="JN6-6u-UAW" secondAttribute="trailing" constant="2" id="cQl-3p-Yvu"/>
+                <constraint firstItem="JN6-6u-UAW" firstAttribute="leading" secondItem="gSC-3b-VU3" secondAttribute="leading" constant="8" id="gIq-3r-QaL"/>
+                <constraint firstItem="JN6-6u-UAW" firstAttribute="top" secondItem="gSC-3b-VU3" secondAttribute="top" constant="16" id="meP-JX-5Id"/>
+                <constraint firstItem="b2S-UP-jiF" firstAttribute="top" secondItem="JN6-6u-UAW" secondAttribute="bottom" constant="16" id="mto-Qt-Zc0"/>
+                <constraint firstItem="QBd-bZ-9jU" firstAttribute="top" secondItem="b2S-UP-jiF" secondAttribute="bottom" constant="32" id="oUp-fv-9g1"/>
+                <constraint firstItem="F49-Jv-bT9" firstAttribute="trailing" secondItem="X0e-kV-jva" secondAttribute="trailingMargin" id="tQ1-3U-Ri4"/>
+            </constraints>
+            <point key="canvasLocation" x="87.786259541984734" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
